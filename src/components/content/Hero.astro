@@ -37,8 +37,8 @@ const {
 const sizeClasses = {
   sm: 'py-16 lg:py-24',
   md: 'py-24 lg:py-32', 
-  lg: 'py-32 lg:py-48',
-  xl: 'py-48 lg:py-64'
+  lg: 'py-20 md:py-32 lg:py-48',
+  xl: 'py-32 md:py-48 lg:py-64'
 };
 
 const alignmentClasses = {
@@ -51,12 +51,12 @@ const heroClasses = `
   relative
   ${sizeClasses[size]}
   ${alignmentClasses[alignment]}
-  ${backgroundImage || backgroundVideo ? 'text-white' : 'bg-gradient-primary text-white'}
+  ${backgroundImage || backgroundVideo ? 'text-white min-h-screen flex items-center' : 'bg-gradient-primary text-white'}
   ${className}
 `;
 
 const backgroundStyle = backgroundImage 
-  ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
+  ? `background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
   : '';
 ---
 
@@ -75,13 +75,13 @@ const backgroundStyle = backgroundImage
     </video>
   )}
   
-  <!-- Overlay -->
-  {overlay && (backgroundImage || backgroundVideo) && (
+  <!-- Overlay for video only -->
+  {overlay && backgroundVideo && (
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
   )}
   
   <!-- Content -->
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="container mx-auto px-4 relative z-10 w-full">
     <div class={`max-w-4xl ${alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : ''}`}>
       
       <!-- Subtitle -->
@@ -92,19 +92,24 @@ const backgroundStyle = backgroundImage
       )}
       
       <!-- Main Title -->
-      <h1 class="hero-title text-white font-heading font-bold mb-6 animate-slide-up">
+      <h1 class="hero-title text-white font-heading font-bold mb-6 animate-slide-up leading-tight">
         {title}
       </h1>
       
       <!-- Description -->
       {description && (
-        <p class="text-lg lg:text-xl font-body mb-8 opacity-90 max-w-3xl animate-fade-in animation-delay-200">
+        <p class={`text-lg lg:text-xl font-body mb-8 opacity-90 max-w-3xl animate-fade-in animation-delay-200 ${
+          alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : ''
+        }`}>
           {description}
         </p>
       )}
       
       <!-- Call-to-Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start animate-slide-up animation-delay-400">
+      <div class={`flex flex-col sm:flex-row gap-4 animate-slide-up animation-delay-400 ${
+        alignment === 'center' ? 'justify-center' : 
+        alignment === 'right' ? 'justify-end' : 'justify-start'
+      }`}>
         {primaryButtonText && primaryButtonHref && (
           <Button 
             variant="primary" 
