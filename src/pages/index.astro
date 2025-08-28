@@ -30,6 +30,25 @@ const testimonial = {
   quote: "Switching to Muscle Car Insurance was the best decision I made for my classic Camaro. The agreed value coverage gives me confidence that my investment is protected.",
   author: "Alex R."
 };
+
+const faqs = [
+  {
+    question: "What makes muscle car insurance different from regular auto insurance?",
+    answer: "Muscle car insurance is specifically designed for classic, vintage, and high-performance vehicles. Unlike standard auto insurance that depreciates your car's value over time, muscle car insurance offers agreed value coverage, specialized repair options, and coverage for custom parts and modifications."
+  },
+  {
+    question: "How is the agreed value of my muscle car determined?",
+    answer: "The agreed value is determined through professional appraisals, market research, and documentation of your vehicle's condition and modifications. We work with certified appraisers who specialize in muscle cars to establish a fair and accurate value that both you and we agree upon."
+  },
+  {
+    question: "Can I drive my muscle car daily with this insurance?",
+    answer: "Yes! We offer flexible usage options including daily driver coverage, weekend pleasure use, or show-only policies. Our coverage adapts to how you actually use your muscle car, whether it's your primary vehicle or a weekend cruiser."
+  },
+  {
+    question: "Are modified muscle cars covered?",
+    answer: "Absolutely. Our custom parts and equipment coverage protects aftermarket modifications, performance upgrades, custom paint, chrome work, and interior modifications. We understand that modifications often increase your car's value and ensure they're properly protected."
+  }
+];
 ---
 
 <Layout 
@@ -54,18 +73,18 @@ const testimonial = {
     />
     
     <!-- Why Choose Section -->
-    <section class="section bg-light">
+    <section class="section bg-gray-50">
       <div class="container mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="section-title text-primary-brand">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-primary-brand mb-6">
             Why Choose Muscle Car Insurance?
           </h2>
-          <p class="text-lg text-secondary-brand max-w-3xl mx-auto">
+          <p class="text-xl text-secondary-brand max-w-4xl mx-auto leading-relaxed">
             Our specialized coverage ensures that your vehicle is insured for its true worth, taking into account any customizations and the potential for appreciation. With options for track day coverage and protection against theft and vandalism, our policies are designed to offer peace of mind for every muscle car enthusiast.
           </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
           {coverageTypes.map((coverage, index) => {
             const imageUrls = [
               '/images/customized_muscle_car_coverage.jpeg',
@@ -73,17 +92,18 @@ const testimonial = {
               '/images/muscle_car_auto_insurance_coverage.jpg'
             ];
             return (
-              <Card variant="elevated" hover>
-                <div class="text-center">
+              <Card variant="elevated" hover class="bg-white shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div class="text-center p-8">
                   <img 
                     src={imageUrls[index]} 
                     alt={coverage.title}
-                    class="w-full h-48 object-cover rounded-lg mb-4"
+                    class="w-full h-56 object-cover rounded-lg mb-6 shadow-md"
                   />
-                  <h3 class="subsection-title text-primary-brand">
+                  <div class="text-5xl mb-6">{coverage.icon}</div>
+                  <h3 class="text-2xl font-heading font-bold text-primary-brand mb-4">
                     {coverage.title}
                   </h3>
-                  <p class="text-secondary-brand">
+                  <p class="text-lg text-secondary-brand leading-relaxed">
                     {coverage.description}
                   </p>
                 </div>
@@ -95,67 +115,160 @@ const testimonial = {
     </section>
     
     <!-- Customer Testimonials Section -->
-    <section class="section">
+    <section class="section bg-primary-brand text-white py-20">
       <div class="container mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="section-title text-primary-brand">
-            Customer Testimonials
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+            What Our Customers Say
           </h2>
+          <div class="w-24 h-1 bg-accent mx-auto"></div>
         </div>
         
-        <div class="max-w-4xl mx-auto">
-          <Card variant="elevated">
-            <div class="text-center p-8">
-              <blockquote class="text-xl italic text-secondary-brand mb-6">
-                "{testimonial.quote}"
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-12 shadow-2xl">
+            <div class="text-center">
+              <div class="text-6xl mb-8 text-accent">❝</div>
+              <blockquote class="text-2xl lg:text-3xl italic text-white mb-8 leading-relaxed">
+                {testimonial.quote}
               </blockquote>
-              <cite class="font-semibold text-primary-brand">
-                – {testimonial.author}
-              </cite>
+              <div class="flex items-center justify-center">
+                <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
+                  {testimonial.author.charAt(0)}
+                </div>
+                <cite class="text-xl font-semibold text-accent not-italic">
+                  {testimonial.author}
+                </cite>
+              </div>
             </div>
-          </Card>
+          </div>
         </div>
       </div>
     </section>
     
     <!-- How It Works Section -->
-    <section class="section bg-light">
+    <section class="section bg-gray-50 py-20">
       <div class="container mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="section-title text-primary-brand">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-primary-brand mb-6">
             Get Your Quote in 3 Easy Steps
           </h2>
+          <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+          <p class="text-xl text-secondary-brand max-w-3xl mx-auto">
+            Our streamlined process makes it simple to get specialized muscle car insurance coverage
+          </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center">
-            <div class="text-4xl mb-4">📝</div>
-            <h3 class="subsection-title text-primary-brand">
-              1. Provide Information
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="text-center relative">
+            <div class="relative inline-block mb-8">
+              <div class="text-8xl font-bold text-accent/20 absolute -top-4 -left-2">1</div>
+              <div class="bg-accent text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl relative z-10 mx-auto shadow-lg">
+                📝
+              </div>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-primary-brand mb-4">
+              Provide Information
             </h3>
-            <p class="text-secondary-brand">
+            <p class="text-lg text-secondary-brand leading-relaxed">
               Provide essential information like mileage, condition, and any modifications to your muscle car.
             </p>
+            {/* Arrow connector for desktop */}
+            <div class="hidden md:block absolute top-12 -right-6 text-4xl text-accent/30">
+              →
+            </div>
           </div>
           
-          <div class="text-center">
-            <div class="text-4xl mb-4">📊</div>
-            <h3 class="subsection-title text-primary-brand">
-              2. Get Tailored Quote
+          <div class="text-center relative">
+            <div class="relative inline-block mb-8">
+              <div class="text-8xl font-bold text-accent/20 absolute -top-4 -left-2">2</div>
+              <div class="bg-accent text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl relative z-10 mx-auto shadow-lg">
+                📊
+              </div>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-primary-brand mb-4">
+              Get Tailored Quote
             </h3>
-            <p class="text-secondary-brand">
+            <p class="text-lg text-secondary-brand leading-relaxed">
               Our team will tailor a quote that fits your unique needs and vehicle specifications.
             </p>
+            {/* Arrow connector for desktop */}
+            <div class="hidden md:block absolute top-12 -right-6 text-4xl text-accent/30">
+              →
+            </div>
           </div>
           
-          <div class="text-center">
-            <div class="text-4xl mb-4">🛡️</div>
-            <h3 class="subsection-title text-primary-brand">
-              3. Choose Your Coverage
+          <div class="text-center relative">
+            <div class="relative inline-block mb-8">
+              <div class="text-8xl font-bold text-accent/20 absolute -top-4 -left-2">3</div>
+              <div class="bg-accent text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl relative z-10 mx-auto shadow-lg">
+                🛡️
+              </div>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-primary-brand mb-4">
+              Choose Your Coverage
             </h3>
-            <p class="text-secondary-brand">
+            <p class="text-lg text-secondary-brand leading-relaxed">
               Choose from our range of specialized insurance options to best protect your investment.
             </p>
+          </div>
+        </div>
+        
+        <div class="text-center mt-16">
+          <Button variant="primary" size="xl" href="/quote" class="bg-accent hover:bg-primary-brand shadow-xl">
+            Start Your Quote Now
+          </Button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section bg-white py-20">
+      <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-primary-brand mb-6">
+              Frequently Asked Questions
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+            <p class="text-xl text-secondary-brand">
+              Get answers to common questions about muscle car insurance
+            </p>
+          </div>
+          
+          <div class="space-y-6">
+            {faqs.map((faq, index) => (
+              <div class="bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                <button 
+                  class="w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-accent rounded-xl"
+                  onclick={`toggleFaq(${index})`}
+                >
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-heading font-semibold text-primary-brand pr-4">
+                      {faq.question}
+                    </h3>
+                    <div class={`transform transition-transform duration-300 text-accent text-2xl`} id={`arrow-${index}`}>
+                      +
+                    </div>
+                  </div>
+                </button>
+                <div class="px-8 pb-8 hidden" id={`answer-${index}`}>
+                  <div class="border-t border-gray-200 pt-6">
+                    <p class="text-lg text-secondary-brand leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div class="text-center mt-12">
+            <p class="text-lg text-secondary-brand mb-6">
+              Have more questions? Our experts are here to help.
+            </p>
+            <Button variant="outline" size="lg" href="/contact" class="border-primary-brand text-primary-brand hover:bg-primary-brand hover:text-white">
+              Contact Our Experts
+            </Button>
           </div>
         </div>
       </div>
@@ -195,3 +308,35 @@ const testimonial = {
   
   <Footer />
 </Layout>
+
+<script>
+  // FAQ Toggle Functionality
+  function toggleFaq(index) {
+    const answer = document.getElementById(`answer-${index}`);
+    const arrow = document.getElementById(`arrow-${index}`);
+    
+    if (answer.classList.contains('hidden')) {
+      // Close all other FAQs first
+      document.querySelectorAll('[id^="answer-"]').forEach(el => {
+        el.classList.add('hidden');
+      });
+      document.querySelectorAll('[id^="arrow-"]').forEach(el => {
+        el.textContent = '+';
+        el.classList.remove('rotate-45');
+      });
+      
+      // Open this FAQ
+      answer.classList.remove('hidden');
+      arrow.textContent = '−';
+      arrow.classList.add('rotate-45');
+    } else {
+      // Close this FAQ
+      answer.classList.add('hidden');
+      arrow.textContent = '+';
+      arrow.classList.remove('rotate-45');
+    }
+  }
+  
+  // Make function globally available
+  window.toggleFaq = toggleFaq;
+</script>

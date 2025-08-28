@@ -51,12 +51,12 @@ const heroClasses = `
   relative
   ${sizeClasses[size]}
   ${alignmentClasses[alignment]}
-  ${backgroundImage || backgroundVideo ? 'text-white min-h-screen flex items-center' : 'bg-gradient-primary text-white'}
+  ${backgroundImage || backgroundVideo ? 'text-white min-h-screen flex items-center bg-primary-brand' : 'bg-gradient-primary text-white'}
   ${className}
 `;
 
 const backgroundStyle = backgroundImage 
-  ? `background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
+  ? `background-image: linear-gradient(rgba(26, 61, 109, 0.8), rgba(26, 61, 109, 0.6)), url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
   : '';
 ---
 
@@ -82,23 +82,23 @@ const backgroundStyle = backgroundImage
   
   <!-- Content -->
   <div class="container mx-auto px-4 relative z-10 w-full">
-    <div class={`max-w-4xl ${alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : ''}`}>
+    <div class={`max-w-5xl ${alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : ''}`}>
       
       <!-- Subtitle -->
       {subtitle && (
-        <div class="font-secondary text-lg lg:text-xl font-medium mb-4 opacity-90 animate-fade-in">
+        <div class="font-secondary text-xl lg:text-2xl font-medium mb-6 text-accent animate-fade-in uppercase tracking-wide">
           {subtitle}
         </div>
       )}
       
       <!-- Main Title -->
-      <h1 class="hero-title text-white font-heading font-bold mb-6 animate-slide-up leading-tight">
+      <h1 class="hero-title text-white font-heading font-bold mb-8 animate-slide-up leading-tight text-4xl md:text-5xl lg:text-6xl">
         {title}
       </h1>
       
       <!-- Description -->
       {description && (
-        <p class={`text-lg lg:text-xl font-body mb-8 opacity-90 max-w-3xl animate-fade-in animation-delay-200 ${
+        <p class={`text-xl lg:text-2xl font-body mb-10 max-w-4xl animate-fade-in animation-delay-200 leading-relaxed ${
           alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : ''
         }`}>
           {description}
@@ -106,16 +106,16 @@ const backgroundStyle = backgroundImage
       )}
       
       <!-- Call-to-Action Buttons -->
-      <div class={`flex flex-col sm:flex-row gap-4 animate-slide-up animation-delay-400 ${
+      <div class={`flex flex-col sm:flex-row gap-6 animate-slide-up animation-delay-400 ${
         alignment === 'center' ? 'justify-center' : 
         alignment === 'right' ? 'justify-end' : 'justify-start'
       }`}>
         {primaryButtonText && primaryButtonHref && (
           <Button 
             variant="primary" 
-            size="lg" 
+            size="xl" 
             href={primaryButtonHref}
-            class="bg-accent hover:bg-primary-brand shadow-lg"
+            class="bg-accent hover:bg-white hover:text-primary-brand shadow-xl text-lg px-8 py-4 transform hover:scale-105 transition-all duration-200"
           >
             {primaryButtonText}
           </Button>
@@ -124,9 +124,9 @@ const backgroundStyle = backgroundImage
         {secondaryButtonText && secondaryButtonHref && (
           <Button 
             variant="outline" 
-            size="lg" 
+            size="xl" 
             href={secondaryButtonHref}
-            class="border-white text-white hover:bg-white hover:text-primary-brand"
+            class="border-2 border-white text-white hover:bg-white hover:text-primary-brand text-lg px-8 py-4 transform hover:scale-105 transition-all duration-200"
           >
             {secondaryButtonText}
           </Button>
