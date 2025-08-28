@@ -1,0 +1,168 @@
+---
+// Hero.astro - Hero banner component with different layouts
+import Button from '../ui/Button.astro';
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  primaryButtonText?: string;
+  primaryButtonHref?: string;
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
+  backgroundImage?: string;
+  backgroundVideo?: string;
+  overlay?: boolean;
+  alignment?: 'left' | 'center' | 'right';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  class?: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  primaryButtonText = 'Get Quote',
+  primaryButtonHref = '/quote',
+  secondaryButtonText,
+  secondaryButtonHref,
+  backgroundImage,
+  backgroundVideo,
+  overlay = true,
+  alignment = 'center',
+  size = 'lg',
+  class: className = ''
+} = Astro.props;
+
+const sizeClasses = {
+  sm: 'py-16 lg:py-24',
+  md: 'py-24 lg:py-32', 
+  lg: 'py-32 lg:py-48',
+  xl: 'py-48 lg:py-64'
+};
+
+const alignmentClasses = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right'
+};
+
+const heroClasses = `
+  relative
+  ${sizeClasses[size]}
+  ${alignmentClasses[alignment]}
+  ${backgroundImage || backgroundVideo ? 'text-white' : 'bg-gradient-primary text-white'}
+  ${className}
+`;
+
+const backgroundStyle = backgroundImage 
+  ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
+  : '';
+---
+
+<section class={heroClasses} style={backgroundStyle}>
+  
+  <!-- Background Video -->
+  {backgroundVideo && (
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src={backgroundVideo} type="video/mp4" />
+    </video>
+  )}
+  
+  <!-- Overlay -->
+  {overlay && (backgroundImage || backgroundVideo) && (
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  )}
+  
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-10">
+    <div class={`max-w-4xl ${alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : ''}`}>
+      
+      <!-- Subtitle -->
+      {subtitle && (
+        <div class="font-secondary text-lg lg:text-xl font-medium mb-4 opacity-90 animate-fade-in">
+          {subtitle}
+        </div>
+      )}
+      
+      <!-- Main Title -->
+      <h1 class="hero-title text-white font-heading font-bold mb-6 animate-slide-up">
+        {title}
+      </h1>
+      
+      <!-- Description -->
+      {description && (
+        <p class="text-lg lg:text-xl font-body mb-8 opacity-90 max-w-3xl animate-fade-in animation-delay-200">
+          {description}
+        </p>
+      )}
+      
+      <!-- Call-to-Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start animate-slide-up animation-delay-400">
+        {primaryButtonText && primaryButtonHref && (
+          <Button 
+            variant="primary" 
+            size="lg" 
+            href={primaryButtonHref}
+            class="bg-accent hover:bg-primary-brand shadow-lg"
+          >
+            {primaryButtonText}
+          </Button>
+        )}
+        
+        {secondaryButtonText && secondaryButtonHref && (
+          <Button 
+            variant="outline" 
+            size="lg" 
+            href={secondaryButtonHref}
+            class="border-white text-white hover:bg-white hover:text-primary-brand"
+          >
+            {secondaryButtonText}
+          </Button>
+        )}
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Optional scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-white opacity-75" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+  
+</section>
+
+<style>
+  /* Animation delays */
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+  
+  /* Hero text shadow for better readability */
+  .hero-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Responsive video handling */
+  video {
+    object-position: center center;
+  }
+  
+  @media (max-width: 768px) {
+    video {
+      object-position: center center;
+    }
+  }
+</style>

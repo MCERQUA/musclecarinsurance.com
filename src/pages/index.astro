@@ -1,0 +1,186 @@
+---
+// Import components
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/content/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+
+// Real content from the original musclecarinsurance.com site
+const coverageTypes = [
+  {
+    title: 'Collision & Comprehensive',
+    description: 'Our policies cover both accident-related and non-accident damages, ensuring your muscle car is protected no matter the circumstance.',
+    icon: '🛡️'
+  },
+  {
+    title: 'Agreed Value Coverage',
+    description: 'Insure your muscle car at its appraised value, safeguarding against depreciation and ensuring full value compensation in the event of a loss.',
+    icon: '💎'
+  },
+  {
+    title: 'Custom Parts & Equipment Coverage',
+    description: 'Protect your vehicle\'s unique modifications, including custom paint jobs and aftermarket parts, with our specialized coverage options.',
+    icon: '🔧'
+  }
+];
+
+const testimonial = {
+  quote: "Switching to Muscle Car Insurance was the best decision I made for my classic Camaro. The agreed value coverage gives me confidence that my investment is protected.",
+  author: "Alex R."
+};
+---
+
+<Layout 
+  title="Muscle Car Insurance – Protect Your Muscle Car with Specialized Insurance"
+  description="Ensure your prized vehicle is safeguarded with tailored insurance solutions designed for the unique needs of muscle car owners."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title="Protect Your Muscle Car with Specialized Insurance"
+      subtitle="Customized Coverage for Your Muscle Car"
+      description="Ensure your prized vehicle is safeguarded with tailored insurance solutions designed for the unique needs of muscle car owners. Standard car insurance often falls short when it comes to protecting the unique value and modifications of muscle cars."
+      primaryButtonText="Get Your Quote"
+      primaryButtonHref="/quote"
+      secondaryButtonText="Call 844-967-5247"
+      secondaryButtonHref="tel:844-967-5247"
+      backgroundImage="/images/hero-muscle-car.jpg"
+      size="lg"
+      alignment="center"
+    />
+    
+    <!-- Why Choose Section -->
+    <section class="section bg-light">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            Why Choose Muscle Car Insurance?
+          </h2>
+          <p class="text-lg text-secondary-brand max-w-3xl mx-auto">
+            Our specialized coverage ensures that your vehicle is insured for its true worth, taking into account any customizations and the potential for appreciation. With options for track day coverage and protection against theft and vandalism, our policies are designed to offer peace of mind for every muscle car enthusiast.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {coverageTypes.map((coverage) => (
+            <Card variant="elevated" hover>
+              <div class="text-center">
+                <div class="text-4xl mb-4">{coverage.icon}</div>
+                <h3 class="subsection-title text-primary-brand">
+                  {coverage.title}
+                </h3>
+                <p class="text-secondary-brand">
+                  {coverage.description}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Customer Testimonials Section -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            Customer Testimonials
+          </h2>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <Card variant="elevated">
+            <div class="text-center p-8">
+              <blockquote class="text-xl italic text-secondary-brand mb-6">
+                "{testimonial.quote}"
+              </blockquote>
+              <cite class="font-semibold text-primary-brand">
+                – {testimonial.author}
+              </cite>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section class="section bg-light">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            Get Your Quote in 3 Easy Steps
+          </h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-4xl mb-4">📝</div>
+            <h3 class="subsection-title text-primary-brand">
+              1. Provide Information
+            </h3>
+            <p class="text-secondary-brand">
+              Provide essential information like mileage, condition, and any modifications to your muscle car.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-4xl mb-4">📊</div>
+            <h3 class="subsection-title text-primary-brand">
+              2. Get Tailored Quote
+            </h3>
+            <p class="text-secondary-brand">
+              Our team will tailor a quote that fits your unique needs and vehicle specifications.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-4xl mb-4">🛡️</div>
+            <h3 class="subsection-title text-primary-brand">
+              3. Choose Your Coverage
+            </h3>
+            <p class="text-secondary-brand">
+              Choose from our range of specialized insurance options to best protect your investment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section-lg bg-gradient-primary text-white text-center">
+      <div class="container mx-auto">
+        <h2 class="section-title mb-6">
+          Ready to Protect Your Muscle Car?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          Get specialized insurance coverage that understands the unique value of your muscle car. Our experts will provide a tailored quote that protects your investment.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            variant="secondary" 
+            size="lg" 
+            href="/quote"
+            class="bg-white text-primary-brand hover:bg-gray-100"
+          >
+            Get Your Quote Now
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            href="tel:844-967-5247"
+            class="border-white text-white hover:bg-white hover:text-primary-brand"
+          >
+            Call 844-967-5247
+          </Button>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <Footer />
+</Layout>

@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables for Muscle Car Insurance Brand Colors */
+:root {
+  --primary-blue: #1a3d6d;
+  --secondary-gray: #3c3a47;
+  --accent-blue: #2273ad;
+  --light-gray: #f8f9fa;
+  --white: #ffffff;
+  --text-primary: #3c3a47;
+  --text-secondary: #6c757d;
+}
+
+/* Typography Classes */
+.font-heading {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  letter-spacing: 0.025em;
+}
+
+.font-body {
+  font-family: 'Roboto', system-ui, sans-serif;
+}
+
+.font-secondary {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* Brand Color Utilities */
+.bg-primary { background-color: var(--primary-blue); }
+.bg-secondary { background-color: var(--secondary-gray); }
+.bg-accent { background-color: var(--accent-blue); }
+.bg-light { background-color: var(--light-gray); }
+
+.text-primary-brand { color: var(--primary-blue); }
+.text-secondary-brand { color: var(--secondary-gray); }
+.text-accent { color: var(--accent-blue); }
+
+.border-primary { border-color: var(--primary-blue); }
+.border-accent { border-color: var(--accent-blue); }
+
+/* Gradient Utilities */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--secondary-gray), var(--primary-blue));
+}
+
+/* Button Base Styles */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-blue);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-gray);
+  color: white;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  @apply border-2;
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105;
+}
+
+.card-body {
+  @apply p-6;
+}
+
+/* Section Spacing */
+.section {
+  @apply py-16 px-4;
+}
+
+.section-lg {
+  @apply py-24 px-4;
+}
+
+/* Container Max Widths */
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Responsive Typography */
+.hero-title {
+  @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  letter-spacing: 0.025em;
+}
+
+.section-title {
+  @apply text-3xl sm:text-4xl lg:text-5xl mb-6;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  letter-spacing: 0.025em;
+}
+
+.subsection-title {
+  @apply text-2xl sm:text-3xl mb-4;
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  letter-spacing: 0.025em;
+}
+
+/* Smooth Animations */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

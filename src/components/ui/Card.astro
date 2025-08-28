@@ -1,0 +1,65 @@
+---
+// Card.astro - Reusable card component for content display
+export interface Props {
+  variant?: 'default' | 'elevated' | 'bordered' | 'gradient';
+  padding?: 'sm' | 'md' | 'lg' | 'xl';
+  class?: string;
+  hover?: boolean;
+  clickable?: boolean;
+  href?: string;
+}
+
+const {
+  variant = 'default',
+  padding = 'md',
+  class: className = '',
+  hover = true,
+  clickable = false,
+  href
+} = Astro.props;
+
+const baseClasses = 'card bg-white rounded-lg overflow-hidden';
+
+const variantClasses = {
+  default: 'shadow-md',
+  elevated: 'shadow-xl',
+  bordered: 'border border-gray-200 shadow-sm',
+  gradient: 'bg-gradient-primary text-white shadow-lg'
+};
+
+const paddingClasses = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8',
+  xl: 'p-10'
+};
+
+const hoverClasses = hover ? 'transition-transform duration-300 hover:scale-105 hover:shadow-lg' : '';
+const clickableClasses = clickable ? 'cursor-pointer' : '';
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${paddingClasses[padding]} ${hoverClasses} ${clickableClasses} ${className}`;
+
+// Determine if this should render as a link
+const isLink = href && clickable;
+const Component = isLink ? 'a' : 'div';
+---
+
+{isLink ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <div class={classes}>
+    <slot />
+  </div>
+)}
+
+<style>
+  .card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card.cursor-pointer:hover {
+    transform: translateY(-2px);
+  }
+</style>

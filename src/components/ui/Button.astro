@@ -1,0 +1,89 @@
+---
+// Button.astro - Reusable button component with variants
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  href?: string;
+  target?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+  ariaLabel?: string;
+  onclick?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  target,
+  type = 'button',
+  disabled = false,
+  class: className = '',
+  ariaLabel,
+  onclick
+} = Astro.props;
+
+// Build CSS classes based on props
+const baseClasses = 'btn inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
+const variantClasses = {
+  primary: 'btn-primary bg-primary text-white hover:opacity-90',
+  secondary: 'btn-secondary bg-secondary text-white hover:opacity-90', 
+  outline: 'btn-outline border-2 text-primary-brand border-primary hover:bg-primary hover:text-white',
+  ghost: 'text-primary-brand hover:bg-light hover:text-primary-brand'
+};
+
+const sizeClasses = {
+  sm: 'px-3 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+  xl: 'px-10 py-5 text-xl'
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
+// Determine if this should render as a link or button
+const isLink = href && !disabled;
+const Component = isLink ? 'a' : 'button';
+---
+
+{isLink ? (
+  <a 
+    href={href}
+    target={target}
+    class={classes}
+    aria-label={ariaLabel}
+    onclick={onclick}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    disabled={disabled}
+    class={classes}
+    aria-label={ariaLabel}
+    onclick={onclick}
+  >
+    <slot />
+  </button>
+)}
+
+<style>
+  /* Additional button-specific styles */
+  .btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 61, 109, 0.3);
+  }
+</style>

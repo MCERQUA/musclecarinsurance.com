@@ -1,0 +1,93 @@
+---
+// Layout.astro - Main page wrapper with SEO and global styles
+export interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  class?: string;
+}
+
+const {
+  title,
+  description = "Specialized insurance coverage for muscle cars, classic cars, and vintage vehicles. Get affordable rates and expert service.",
+  keywords = "muscle car insurance, classic car insurance, vintage car insurance, specialty auto insurance",
+  ogImage = "/images/og-image.jpg",
+  canonicalURL = Astro.url.href,
+  class: className = ""
+} = Astro.props;
+
+// Import global styles
+import '../../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>{title}</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "InsuranceAgency",
+        "name": "Muscle Car Insurance",
+        "description": "Specialized insurance coverage for muscle cars, classic cars, and vintage vehicles",
+        "url": "https://musclecarinsurance.com",
+        "sameAs": [
+          "https://www.facebook.com/musclecarinsurance",
+          "https://twitter.com/musclecarins"
+        ]
+      }
+    </script>
+  </head>
+  <body class={`antialiased ${className}`}>
+    <div class="min-h-screen flex flex-col">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  html {
+    font-family: 'Roboto', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #3c3a47;
+    line-height: 1.6;
+  }
+</style>
