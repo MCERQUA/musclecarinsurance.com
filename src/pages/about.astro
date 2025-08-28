@@ -1,0 +1,222 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/content/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+
+const teamValues = [
+  {
+    title: 'Passion for Muscle Cars',
+    description: 'We share your passion for classic American muscle and understand what makes these vehicles special.',
+    icon: '❤️'
+  },
+  {
+    title: 'Insurance Expertise',
+    description: 'Decades of experience in specialty vehicle insurance, with deep knowledge of the unique challenges muscle car owners face.',
+    icon: '🛡️'
+  },
+  {
+    title: 'Personal Service',
+    description: 'Every client gets personalized attention from our team of muscle car insurance specialists.',
+    icon: '🤝'
+  },
+  {
+    title: 'Fair Claims Handling',
+    description: 'When you need us most, we handle claims fairly and quickly, understanding the true value of your investment.',
+    icon: '⚖️'
+  }
+];
+
+const stats = [
+  { number: '25+', label: 'Years Experience' },
+  { number: '10,000+', label: 'Muscle Cars Insured' },
+  { number: '98%', label: 'Client Satisfaction' },
+  { number: '24/7', label: 'Claims Support' }
+];
+---
+
+<Layout 
+  title="About Muscle Car Insurance – Specialist Coverage Experts"
+  description="Learn about our team of muscle car insurance specialists. With 25+ years of experience, we provide personalized coverage for classic American muscle cars."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title="About Muscle Car Insurance"
+      subtitle="Specialists in Classic American Muscle"
+      description="We're not just insurance agents – we're muscle car enthusiasts who understand the passion, dedication, and investment that goes into owning these incredible machines."
+      primaryButtonText="Get Quote"
+      primaryButtonHref="/quote"
+      secondaryButtonText="Our Coverage"
+      secondaryButtonHref="/coverage"
+      backgroundImage="/images/customized_muscle_car_coverage.jpeg"
+      size="lg"
+      alignment="center"
+    />
+    
+    <!-- Our Story Section -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="section-title text-primary-brand mb-6">
+              Our Story
+            </h2>
+            <div class="space-y-4 text-secondary-brand text-lg">
+              <p>
+                Founded by muscle car enthusiasts for muscle car enthusiasts, Muscle Car Insurance was born from the frustration of trying to properly insure classic American muscle with standard auto insurance policies.
+              </p>
+              <p>
+                After years of dealing with insurance companies that didn't understand the true value of modified '69 Camaros, pristine GTO Judge models, or the investment that goes into a numbers-matching Hemi 'Cuda, we decided to create a better solution.
+              </p>
+              <p>
+                Today, we specialize exclusively in muscle car insurance, offering agreed value coverage, custom parts protection, and the personalized service that muscle car owners deserve.
+              </p>
+            </div>
+          </div>
+          
+          <div>
+            <img 
+              src="/images/custom_muscle_car_coverage.jpg" 
+              alt="Classic muscle car in garage"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Statistics Section -->
+    <section class="section bg-gradient-primary text-white">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title mb-6">
+            Trusted by Muscle Car Owners Nationwide
+          </h2>
+        </div>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat) => (
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-heading font-bold mb-2">
+                {stat.number}
+              </div>
+              <div class="text-lg opacity-90">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Our Values Section -->
+    <section class="section bg-light">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            What Sets Us Apart
+          </h2>
+          <p class="text-lg text-secondary-brand max-w-3xl mx-auto">
+            We're not just another insurance company. Here's what makes us different when it comes to protecting your muscle car investment.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {teamValues.map((value) => (
+            <Card variant="elevated" hover>
+              <div class="p-6">
+                <div class="flex items-start">
+                  <div class="text-3xl mr-4 flex-shrink-0">
+                    {value.icon}
+                  </div>
+                  <div>
+                    <h3 class="font-heading text-xl text-primary-brand mb-3">
+                      {value.title}
+                    </h3>
+                    <p class="text-secondary-brand">
+                      {value.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Why Specialized Coverage Section -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <img 
+              src="/images/muscle_car_auto_insurance_coverage.jpg" 
+              alt="Muscle car insurance coverage"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+          
+          <div>
+            <h2 class="section-title text-primary-brand mb-6">
+              Why Muscle Cars Need Specialized Coverage
+            </h2>
+            <div class="space-y-4 text-secondary-brand">
+              <p>
+                Standard auto insurance treats your prized '70 Chevelle SS like any other used car. They use depreciation tables that don't account for the appreciation, rarity, or restoration investment that makes your muscle car special.
+              </p>
+              <p>
+                Muscle cars often appreciate in value, especially well-maintained or numbers-matching examples. They also frequently have custom modifications, aftermarket parts, or specialized components that standard policies won't properly cover.
+              </p>
+              <p>
+                Our specialized coverage recognizes these unique factors, offering agreed value protection, custom parts coverage, and claims handling by adjusters who understand muscle cars.
+              </p>
+            </div>
+            
+            <div class="mt-8">
+              <Button variant="primary" size="lg" href="/coverage">
+                Learn About Our Coverage
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact CTA Section -->
+    <section class="section-lg bg-light text-center">
+      <div class="container mx-auto">
+        <h2 class="section-title text-primary-brand mb-6">
+          Ready to Protect Your Muscle Car?
+        </h2>
+        <p class="text-xl text-secondary-brand mb-8 max-w-2xl mx-auto">
+          Join thousands of muscle car owners who trust us to protect their investment. Get a quote today and experience the difference specialized coverage makes.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            variant="primary" 
+            size="lg" 
+            href="/quote"
+          >
+            Get Your Quote
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            href="tel:844-967-5247"
+          >
+            Call 844-967-5247
+          </Button>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <Footer />
+</Layout>

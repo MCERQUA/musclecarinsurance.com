@@ -1,0 +1,311 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/content/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+
+const contactMethods = [
+  {
+    title: 'Phone Support',
+    description: 'Speak directly with our muscle car insurance specialists.',
+    icon: '📞',
+    details: '844-967-5247',
+    action: 'Call Now',
+    href: 'tel:844-967-5247'
+  },
+  {
+    title: 'Email Support',
+    description: 'Send us your questions and we\'ll respond within 24 hours.',
+    icon: '📧',
+    details: 'Info@musclecarinsurance.com',
+    action: 'Send Email',
+    href: 'mailto:Info@musclecarinsurance.com'
+  },
+  {
+    title: 'Online Quote',
+    description: 'Get a personalized quote online at your convenience.',
+    icon: '💻',
+    details: 'Available 24/7',
+    action: 'Get Quote',
+    href: '/quote'
+  }
+];
+
+const faqs = [
+  {
+    question: 'How is agreed value coverage different from actual cash value?',
+    answer: 'Agreed value coverage means we agree upfront on your muscle car\'s value and pay that amount if it\'s totaled, regardless of depreciation. Actual cash value policies pay current market value minus depreciation, which often undervalues muscle cars.'
+  },
+  {
+    question: 'Do you cover modified muscle cars?',
+    answer: 'Yes! We specialize in covering modified muscle cars. Our custom parts and equipment coverage protects aftermarket modifications, performance upgrades, custom paint, and other enhancements.'
+  },
+  {
+    question: 'Can I drive my muscle car daily with your coverage?',
+    answer: 'Absolutely. We offer coverage for daily drivers, weekend cruisers, and show-only vehicles. Our policies are flexible to match how you actually use your muscle car.'
+  },
+  {
+    question: 'What documentation do I need for coverage?',
+    answer: 'For standard coverage, just basic vehicle information. For agreed value coverage, we may need photos, an appraisal, or documentation of modifications to establish the agreed value.'
+  }
+];
+---
+
+<Layout 
+  title="Contact Muscle Car Insurance – Expert Support & Quotes"
+  description="Contact our muscle car insurance specialists for personalized quotes and expert advice. Call 844-967-5247 or email Info@musclecarinsurance.com for immediate assistance."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title="Contact Our Muscle Car Insurance Experts"
+      subtitle="Get the Support You Deserve"
+      description="Our team of muscle car insurance specialists is ready to help you find the perfect coverage for your classic investment."
+      primaryButtonText="Call Now"
+      primaryButtonHref="tel:844-967-5247"
+      secondaryButtonText="Get Quote"
+      secondaryButtonHref="/quote"
+      backgroundImage="/images/vintage_muscle_car_coverage.jpeg"
+      size="lg"
+      alignment="center"
+    />
+    
+    <!-- Contact Methods Section -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            Get in Touch
+          </h2>
+          <p class="text-lg text-secondary-brand max-w-3xl mx-auto">
+            Choose the contact method that works best for you. Our muscle car insurance experts are here to help with quotes, questions, and claims.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {contactMethods.map((method) => (
+            <Card variant="elevated" hover clickable href={method.href}>
+              <div class="text-center p-6">
+                <div class="text-4xl mb-4">{method.icon}</div>
+                <h3 class="font-heading text-xl text-primary-brand mb-3">
+                  {method.title}
+                </h3>
+                <p class="text-secondary-brand mb-4">
+                  {method.description}
+                </p>
+                <div class="text-lg font-semibold text-primary-brand mb-4">
+                  {method.details}
+                </div>
+                <Button variant="outline" size="sm" href={method.href}>
+                  {method.action}
+                </Button>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="section bg-light">
+      <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="section-title text-primary-brand">
+              Send Us a Message
+            </h2>
+            <p class="text-lg text-secondary-brand">
+              Have a specific question about muscle car insurance? Send us a message and we'll get back to you within 24 hours.
+            </p>
+          </div>
+          
+          <Card variant="elevated">
+            <div class="p-8">
+              <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="firstName" class="block text-sm font-medium text-secondary-brand mb-2">
+                      First Name
+                    </label>
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      name="firstName"
+                      placeholder="Your first name"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="lastName" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Last Name
+                    </label>
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      name="lastName"
+                      placeholder="Your last name"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Email Address
+                    </label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email"
+                      placeholder="your.email@example.com"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="phone" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Phone Number
+                    </label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone"
+                      placeholder="(555) 123-4567"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="subject" class="block text-sm font-medium text-secondary-brand mb-2">
+                    Subject
+                  </label>
+                  <select 
+                    id="subject" 
+                    name="subject"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                    required
+                  >
+                    <option value="">Select a subject</option>
+                    <option value="quote">Request a Quote</option>
+                    <option value="coverage">Coverage Questions</option>
+                    <option value="claim">File a Claim</option>
+                    <option value="policy">Policy Changes</option>
+                    <option value="general">General Questions</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="vehicle" class="block text-sm font-medium text-secondary-brand mb-2">
+                    Vehicle Information (Optional)
+                  </label>
+                  <input 
+                    type="text" 
+                    id="vehicle" 
+                    name="vehicle"
+                    placeholder="e.g., 1969 Chevrolet Camaro SS"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                  />
+                </div>
+                
+                <div>
+                  <label for="message" class="block text-sm font-medium text-secondary-brand mb-2">
+                    Message
+                  </label>
+                  <textarea 
+                    id="message" 
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us how we can help with your muscle car insurance needs..."
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                    required
+                  ></textarea>
+                </div>
+                
+                <div class="text-center">
+                  <Button variant="primary" size="lg">
+                    Send Message
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="section-title text-primary-brand">
+              Frequently Asked Questions
+            </h2>
+            <p class="text-lg text-secondary-brand">
+              Quick answers to common questions about muscle car insurance.
+            </p>
+          </div>
+          
+          <div class="space-y-6">
+            {faqs.map((faq) => (
+              <Card variant="elevated">
+                <div class="p-6">
+                  <h3 class="font-heading text-lg text-primary-brand mb-3">
+                    {faq.question}
+                  </h3>
+                  <p class="text-secondary-brand">
+                    {faq.answer}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+          
+          <div class="text-center mt-12">
+            <p class="text-secondary-brand mb-6">
+              Don't see your question answered? Contact us directly.
+            </p>
+            <Button variant="outline" size="lg" href="tel:844-967-5247">
+              Call 844-967-5247
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Emergency Claims Section -->
+    <section class="section-lg bg-gradient-secondary text-white text-center">
+      <div class="container mx-auto">
+        <h2 class="section-title mb-6">
+          Need to File a Claim?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          If you need to file a claim for your muscle car, contact us immediately. Our claims specialists are available 24/7 to help you through the process.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            href="tel:844-967-5247"
+            class="border-white text-white hover:bg-white hover:text-primary-brand"
+          >
+            24/7 Claims Hotline: 844-967-5247
+          </Button>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <Footer />
+</Layout>

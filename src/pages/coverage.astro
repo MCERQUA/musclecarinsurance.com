@@ -1,0 +1,253 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/content/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+
+// Coverage types with detailed information
+const coverageOptions = [
+  {
+    title: 'Agreed Value Coverage',
+    description: 'Insure your muscle car at its appraised value, protecting against depreciation and ensuring full compensation.',
+    features: [
+      'No depreciation on claims',
+      'Appraised value protection',
+      'Full replacement guarantee',
+      'Annual value adjustments'
+    ],
+    image: '/images/customized_muscle_car_coverage.jpeg'
+  },
+  {
+    title: 'Custom Parts & Equipment',
+    description: 'Comprehensive protection for aftermarket parts, custom paint, and modifications.',
+    features: [
+      'Aftermarket parts coverage',
+      'Custom paint protection',
+      'Performance modifications',
+      'Audio system coverage'
+    ],
+    image: '/images/custom_muscle_car_coverage.jpg'
+  },
+  {
+    title: 'Collision & Comprehensive',
+    description: 'Complete protection against accidents, theft, vandalism, and natural disasters.',
+    features: [
+      'Accident damage repair',
+      'Theft protection',
+      'Vandalism coverage',
+      'Weather damage protection'
+    ],
+    image: '/images/muscle_car_auto_insurance_coverage.jpg'
+  }
+];
+
+const additionalCoverage = [
+  {
+    title: 'Spare Parts Coverage',
+    description: 'Protection for your collection of spare parts and accessories.',
+    icon: '🔧'
+  },
+  {
+    title: 'Track Day Coverage',
+    description: 'Optional coverage for sanctioned track events and car shows.',
+    icon: '🏁'
+  },
+  {
+    title: 'Diminished Value',
+    description: 'Coverage for the reduced value after an accident, even with perfect repairs.',
+    icon: '📉'
+  },
+  {
+    title: 'Roadside Assistance',
+    description: 'Specialized towing and roadside help for classic and muscle cars.',
+    icon: '🚛'
+  }
+];
+---
+
+<Layout 
+  title="Muscle Car Insurance Coverage Options – Complete Protection"
+  description="Explore our comprehensive muscle car insurance coverage options including agreed value, custom parts protection, and specialized coverage for classic vehicles."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title="Comprehensive Muscle Car Insurance Coverage"
+      subtitle="Protection Designed for Your Classic Investment"
+      description="Our specialized coverage options ensure your muscle car is protected with the same attention to detail you put into maintaining it."
+      primaryButtonText="Get Quote"
+      primaryButtonHref="/quote"
+      secondaryButtonText="Call Expert"
+      secondaryButtonHref="tel:844-967-5247"
+      backgroundImage="/images/vintage_muscle_car_coverage.jpeg"
+      size="lg"
+      alignment="center"
+    />
+    
+    <!-- Main Coverage Types -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            Essential Coverage for Muscle Cars
+          </h2>
+          <p class="text-lg text-secondary-brand max-w-3xl mx-auto">
+            Standard auto insurance wasn't designed for muscle cars. Our specialized coverage options protect your investment with the care it deserves.
+          </p>
+        </div>
+        
+        <div class="space-y-12">
+          {coverageOptions.map((coverage, index) => (
+            <div class={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:grid-cols-[1fr,auto]' : ''}`}>
+              <div class={index % 2 === 1 ? 'lg:order-2' : ''}>
+                <img 
+                  src={coverage.image} 
+                  alt={coverage.title}
+                  class="w-full h-64 lg:h-80 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              <div class={index % 2 === 1 ? 'lg:order-1' : ''}>
+                <h3 class="subsection-title text-primary-brand mb-4">
+                  {coverage.title}
+                </h3>
+                <p class="text-secondary-brand text-lg mb-6">
+                  {coverage.description}
+                </p>
+                <ul class="space-y-3">
+                  {coverage.features.map((feature) => (
+                    <li class="flex items-center text-secondary-brand">
+                      <svg class="w-5 h-5 text-accent mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Additional Coverage Options -->
+    <section class="section bg-light">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            Additional Protection Options
+          </h2>
+          <p class="text-lg text-secondary-brand max-w-3xl mx-auto">
+            Enhance your coverage with these specialized options designed for muscle car enthusiasts.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {additionalCoverage.map((option) => (
+            <Card variant="elevated" hover>
+              <div class="text-center p-6">
+                <div class="text-4xl mb-4">{option.icon}</div>
+                <h3 class="font-heading text-xl text-primary-brand mb-3">
+                  {option.title}
+                </h3>
+                <p class="text-secondary-brand">
+                  {option.description}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Coverage Benefits -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="section-title text-primary-brand mb-6">
+              Why Choose Our Muscle Car Coverage?
+            </h2>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="bg-accent text-white rounded-full p-2 mr-4 flex-shrink-0">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading text-xl text-primary-brand mb-2">
+                    Specialized Expertise
+                  </h3>
+                  <p class="text-secondary-brand">
+                    Our team understands muscle cars and their unique insurance needs, from original factory specs to custom modifications.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="bg-accent text-white rounded-full p-2 mr-4 flex-shrink-0">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading text-xl text-primary-brand mb-2">
+                    True Value Protection
+                  </h3>
+                  <p class="text-secondary-brand">
+                    Unlike standard policies, we insure your muscle car for its true agreed-upon value, protecting your investment.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="bg-accent text-white rounded-full p-2 mr-4 flex-shrink-0">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading text-xl text-primary-brand mb-2">
+                    Flexible Usage
+                  </h3>
+                  <p class="text-secondary-brand">
+                    Whether you drive daily, weekends only, or show only, we have coverage options that fit your usage patterns.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <Card variant="elevated">
+              <div class="p-8 text-center">
+                <h3 class="section-title text-primary-brand mb-6">
+                  Ready to Protect Your Investment?
+                </h3>
+                <p class="text-secondary-brand text-lg mb-8">
+                  Get a personalized quote that reflects your muscle car's true value and your specific coverage needs.
+                </p>
+                <div class="space-y-4">
+                  <Button variant="primary" size="lg" href="/quote" class="w-full">
+                    Get Your Quote
+                  </Button>
+                  <Button variant="outline" size="lg" href="tel:844-967-5247" class="w-full">
+                    Call 844-967-5247
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <Footer />
+</Layout>

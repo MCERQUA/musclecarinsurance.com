@@ -1,0 +1,267 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/content/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<Layout 
+  title="Get Your Muscle Car Insurance Quote – Customized Coverage"
+  description="Get a personalized insurance quote for your muscle car. Fast, easy, and tailored to your vehicle's unique value and modifications."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title="Get Your Custom Muscle Car Insurance Quote"
+      subtitle="Tailored Protection for Your Investment"
+      description="Fill out our quick form to receive a personalized insurance quote designed specifically for your muscle car's unique value and modifications."
+      primaryButtonText="Start Quote"
+      primaryButtonHref="#quote-form"
+      secondaryButtonText="Call 844-967-5247"
+      secondaryButtonHref="tel:844-967-5247"
+      backgroundImage="/images/custom_muscle_car_coverage.jpg"
+      size="lg"
+      alignment="center"
+    />
+    
+    <!-- Quote Process Section -->
+    <section class="section bg-light">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-primary-brand">
+            Quick & Easy Quote Process
+          </h2>
+          <p class="text-lg text-secondary-brand max-w-3xl mx-auto">
+            Getting a quote for your muscle car insurance is simple. Just provide some basic information about your vehicle and driving history.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="text-center">
+            <div class="text-4xl mb-4">🚗</div>
+            <h3 class="subsection-title text-primary-brand">
+              Vehicle Details
+            </h3>
+            <p class="text-secondary-brand">
+              Tell us about your muscle car - make, model, year, modifications, and estimated value.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-4xl mb-4">👤</div>
+            <h3 class="subsection-title text-primary-brand">
+              Personal Information
+            </h3>
+            <p class="text-secondary-brand">
+              Provide your driving history, location, and how you plan to use your muscle car.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="subsection-title text-primary-brand">
+              Custom Quote
+            </h3>
+            <p class="text-secondary-brand">
+              Receive a personalized quote with coverage options tailored to your needs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Quote Form Section -->
+    <section class="section" id="quote-form">
+      <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <Card variant="elevated">
+            <div class="p-8">
+              <h2 class="section-title text-primary-brand text-center mb-8">
+                Get Your Quote
+              </h2>
+              
+              <form class="space-y-6">
+                <!-- Vehicle Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="year" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Year
+                    </label>
+                    <input 
+                      type="number" 
+                      id="year" 
+                      name="year"
+                      placeholder="e.g., 1969"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="make" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Make
+                    </label>
+                    <select 
+                      id="make" 
+                      name="make"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    >
+                      <option value="">Select Make</option>
+                      <option value="chevrolet">Chevrolet</option>
+                      <option value="ford">Ford</option>
+                      <option value="dodge">Dodge</option>
+                      <option value="plymouth">Plymouth</option>
+                      <option value="pontiac">Pontiac</option>
+                      <option value="buick">Buick</option>
+                      <option value="oldsmobile">Oldsmobile</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="model" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Model
+                    </label>
+                    <input 
+                      type="text" 
+                      id="model" 
+                      name="model"
+                      placeholder="e.g., Camaro SS"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="value" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Estimated Value
+                    </label>
+                    <input 
+                      type="number" 
+                      id="value" 
+                      name="value"
+                      placeholder="e.g., 45000"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <!-- Personal Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Full Name
+                    </label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name"
+                      placeholder="Your full name"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Email Address
+                    </label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email"
+                      placeholder="your.email@example.com"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="phone" class="block text-sm font-medium text-secondary-brand mb-2">
+                      Phone Number
+                    </label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone"
+                      placeholder="(555) 123-4567"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="zip" class="block text-sm font-medium text-secondary-brand mb-2">
+                      ZIP Code
+                    </label>
+                    <input 
+                      type="text" 
+                      id="zip" 
+                      name="zip"
+                      placeholder="12345"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <!-- Additional Information -->
+                <div>
+                  <label for="modifications" class="block text-sm font-medium text-secondary-brand mb-2">
+                    Modifications (Optional)
+                  </label>
+                  <textarea 
+                    id="modifications" 
+                    name="modifications"
+                    rows="3"
+                    placeholder="Describe any modifications, custom parts, or special features..."
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-brand focus:border-transparent"
+                  ></textarea>
+                </div>
+                
+                <div class="text-center">
+                  <Button variant="primary" size="lg" class="w-full md:w-auto">
+                    Get My Quote
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact CTA Section -->
+    <section class="section-lg bg-gradient-primary text-white text-center">
+      <div class="container mx-auto">
+        <h2 class="section-title mb-6">
+          Questions About Your Quote?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          Our muscle car insurance experts are here to help. Call us directly for personalized assistance.
+        </p>
+        <Button 
+          variant="outline" 
+          size="lg" 
+          href="tel:844-967-5247"
+          class="border-white text-white hover:bg-white hover:text-primary-brand"
+        >
+          Call 844-967-5247
+        </Button>
+      </div>
+    </section>
+    
+  </main>
+  
+  <Footer />
+</Layout>
