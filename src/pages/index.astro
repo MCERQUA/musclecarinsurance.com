@@ -48,7 +48,7 @@ const testimonial = {
       primaryButtonHref="/quote"
       secondaryButtonText="Call 844-967-5247"
       secondaryButtonHref="tel:844-967-5247"
-      backgroundImage="/images/hero-muscle-car.jpg"
+      backgroundImage="/images/vintage_muscle_car_coverage.jpeg"
       size="lg"
       alignment="center"
     />
@@ -66,19 +66,30 @@ const testimonial = {
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {coverageTypes.map((coverage) => (
-            <Card variant="elevated" hover>
-              <div class="text-center">
-                <div class="text-4xl mb-4">{coverage.icon}</div>
-                <h3 class="subsection-title text-primary-brand">
-                  {coverage.title}
-                </h3>
-                <p class="text-secondary-brand">
-                  {coverage.description}
-                </p>
-              </div>
-            </Card>
-          ))}
+          {coverageTypes.map((coverage, index) => {
+            const imageUrls = [
+              '/images/customized_muscle_car_coverage.jpeg',
+              '/images/custom_muscle_car_coverage.jpg', 
+              '/images/muscle_car_auto_insurance_coverage.jpg'
+            ];
+            return (
+              <Card variant="elevated" hover>
+                <div class="text-center">
+                  <img 
+                    src={imageUrls[index]} 
+                    alt={coverage.title}
+                    class="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <h3 class="subsection-title text-primary-brand">
+                    {coverage.title}
+                  </h3>
+                  <p class="text-secondary-brand">
+                    {coverage.description}
+                  </p>
+                </div>
+              </Card>
+            )
+          })}
         </div>
       </div>
     </section>
