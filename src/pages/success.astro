@@ -1,0 +1,204 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/content/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<Layout 
+  title="Thank You – Message Sent Successfully | Muscle Car Insurance"
+  description="Thank you for contacting Muscle Car Insurance. We've received your message and will respond within 24 hours."
+>
+  <Header />
+  
+  <main>
+    <!-- Success Hero Section -->
+    <Hero 
+      title="Thank You!"
+      subtitle="Your Message Has Been Sent Successfully"
+      description="We've received your information and one of our muscle car insurance specialists will contact you within 24 hours."
+      primaryButtonText="Get Another Quote"
+      primaryButtonHref="/quote"
+      secondaryButtonText="Browse Resources"
+      secondaryButtonHref="/resources"
+      backgroundImage="/images/vintage_muscle_car_coverage.jpeg"
+      size="lg"
+      alignment="center"
+    />
+    
+    <!-- What Happens Next Section -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="section-title text-primary-brand">
+              What Happens Next?
+            </h2>
+            <p class="text-lg text-secondary-brand">
+              Here's what you can expect from our team
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card variant="elevated">
+              <div class="text-center p-6">
+                <div class="text-4xl mb-4">📞</div>
+                <h3 class="font-heading text-xl text-primary-brand mb-3">
+                  Personal Contact
+                </h3>
+                <p class="text-secondary-brand mb-4">
+                  A specialist will review your information and call you within 24 hours to discuss your needs.
+                </p>
+              </div>
+            </Card>
+            
+            <Card variant="elevated">
+              <div class="text-center p-6">
+                <div class="text-4xl mb-4">🔍</div>
+                <h3 class="font-heading text-xl text-primary-brand mb-3">
+                  Custom Analysis
+                </h3>
+                <p class="text-secondary-brand mb-4">
+                  We'll analyze your vehicle and requirements to create personalized coverage recommendations.
+                </p>
+              </div>
+            </Card>
+            
+            <Card variant="elevated">
+              <div class="text-center p-6">
+                <div class="text-4xl mb-4">📋</div>
+                <h3 class="font-heading text-xl text-primary-brand mb-3">
+                  Detailed Quote
+                </h3>
+                <p class="text-secondary-brand mb-4">
+                  Receive a comprehensive quote with all coverage options and pricing clearly explained.
+                </p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Immediate Help Section -->
+    <section class="section bg-light">
+      <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="section-title text-primary-brand mb-6">
+            Need Immediate Assistance?
+          </h2>
+          <p class="text-lg text-secondary-brand mb-8">
+            Don't want to wait? Our specialists are available now to answer your questions and provide instant quotes.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card variant="elevated">
+              <div class="p-6">
+                <h3 class="font-heading text-xl text-primary-brand mb-3">
+                  Call Our Specialists
+                </h3>
+                <p class="text-secondary-brand mb-6">
+                  Speak directly with our muscle car insurance experts for immediate help and quotes.
+                </p>
+                <Button 
+                  variant="primary" 
+                  size="lg" 
+                  href="tel:844-967-5247"
+                  class="w-full"
+                >
+                  Call 844-967-5247
+                </Button>
+              </div>
+            </Card>
+            
+            <Card variant="elevated">
+              <div class="p-6">
+                <h3 class="font-heading text-xl text-primary-brand mb-3">
+                  Browse Our Resources
+                </h3>
+                <p class="text-secondary-brand mb-6">
+                  Learn more about muscle car insurance while you wait with our comprehensive resource library.
+                </p>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  href="/resources"
+                  class="w-full"
+                >
+                  View Resources
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Recent Blog Posts -->
+    <section class="section">
+      <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="section-title text-primary-brand">
+              While You Wait, Read Our Latest Articles
+            </h2>
+            <p class="text-lg text-secondary-brand">
+              Stay informed with expert insights on muscle car insurance
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card variant="elevated" hover>
+              <a href="/blog/top-10-muscle-cars-to-insure-2024/" class="block">
+                <img 
+                  src="/images/muscle_car_auto_insurance_coverage.jpg" 
+                  alt="Top 10 Muscle Cars"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-6">
+                  <span class="text-sm text-blue-600 font-medium">Car Reviews</span>
+                  <h3 class="font-heading text-lg text-primary-brand mt-2 mb-3">
+                    Top 10 Muscle Cars to Insure in 2024
+                  </h3>
+                  <p class="text-secondary-brand text-sm">
+                    Discover which classic muscle cars offer the best insurance value for collectors and enthusiasts.
+                  </p>
+                </div>
+              </a>
+            </Card>
+            
+            <Card variant="elevated" hover>
+              <a href="/blog/muscle-car-modifications-insurance-guide/" class="block">
+                <img 
+                  src="/images/customized_muscle_car_coverage.jpeg" 
+                  alt="Modifications Guide"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-6">
+                  <span class="text-sm text-blue-600 font-medium">Modifications</span>
+                  <h3 class="font-heading text-lg text-primary-brand mt-2 mb-3">
+                    The Complete Guide to Muscle Car Modifications
+                  </h3>
+                  <p class="text-secondary-brand text-sm">
+                    Everything you need to know about insuring modified muscle cars safely and properly.
+                  </p>
+                </div>
+              </a>
+            </Card>
+          </div>
+          
+          <div class="text-center mt-8">
+            <Button variant="outline" size="lg" href="/blog">
+              View All Articles
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <Footer />
+</Layout>
