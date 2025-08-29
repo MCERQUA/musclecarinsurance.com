@@ -1,0 +1,278 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+
+const post = {
+  title: 'Understanding Agreed Value vs. Actual Cash Value Coverage',
+  author: 'Sarah Johnson',
+  date: '2024-08-12',
+  readTime: '6 min read',
+  image: '/images/vintage_muscle_car_coverage.jpeg',
+  category: 'Insurance Tips'
+};
+---
+
+<Layout 
+  title={`${post.title} – Muscle Car Insurance Blog`}
+  description="Learn the critical differences between agreed value and actual cash value coverage, and why it matters for your classic car investment."
+>
+  <Header />
+  
+  <main>
+    <!-- Article Header -->
+    <article class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-8">
+          <ol class="flex items-center space-x-2 text-sm text-gray-500">
+            <li><a href="/" class="hover:text-blue-600">Home</a></li>
+            <li class="before:content-['/'] before:mx-2">
+              <a href="/blog" class="hover:text-blue-600">Blog</a>
+            </li>
+            <li class="before:content-['/'] before:mx-2 text-gray-700">
+              {post.title}
+            </li>
+          </ol>
+        </nav>
+
+        <!-- Article Meta -->
+        <div class="mb-8">
+          <div class="flex items-center mb-4">
+            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+              {post.category}
+            </span>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6 leading-tight">
+            {post.title}
+          </h1>
+          
+          <div class="flex items-center text-gray-600 mb-8">
+            <span class="font-medium">{post.author}</span>
+            <span class="mx-3">•</span>
+            <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span class="mx-3">•</span>
+            <span>{post.readTime}</span>
+          </div>
+        </div>
+
+        <!-- Featured Image -->
+        <div class="mb-12">
+          <img 
+            src={post.image} 
+            alt={post.title}
+            class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            When insuring your muscle car, one of the most important decisions you'll make is choosing between agreed value and actual cash value coverage. This choice can mean the difference between full compensation for your investment and a significant financial loss in the event of a total loss.
+          </p>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">What is Actual Cash Value (ACV) Coverage?</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Actual Cash Value coverage is the traditional form of auto insurance used for daily driver vehicles. Under ACV coverage, your insurance company will pay you the current market value of your vehicle minus depreciation at the time of loss.
+          </p>
+
+          <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
+            <h4 class="font-semibold text-red-800 mb-3">The Problem with ACV for Classic Cars</h4>
+            <p class="text-red-700">
+              Standard depreciation tables don't account for the unique factors that determine a muscle car's value, such as rarity, condition, modifications, and historical significance.
+            </p>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">How ACV is Calculated</h3>
+          <ul class="list-disc pl-6 mb-8 text-gray-700 space-y-2">
+            <li>Insurance company determines the current market value</li>
+            <li>Depreciation is subtracted based on age and condition</li>
+            <li>Your deductible is subtracted from the final amount</li>
+            <li>You receive the remaining balance</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">What is Agreed Value Coverage?</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Agreed Value coverage is specifically designed for classic, vintage, and muscle cars. With this type of policy, you and your insurance company agree on the value of your vehicle upfront, typically based on professional appraisals and market research.
+          </p>
+
+          <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
+            <h4 class="font-semibold text-green-800 mb-3">The Agreed Value Advantage</h4>
+            <p class="text-green-700">
+              In the event of a total loss, you receive the full agreed-upon value minus your deductible – no depreciation, no arguments about market value.
+            </p>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">How Agreed Value is Determined</h3>
+          <ol class="list-decimal pl-6 mb-8 text-gray-700 space-y-3">
+            <li><strong>Professional Appraisal:</strong> Certified appraiser evaluates your vehicle</li>
+            <li><strong>Market Research:</strong> Recent sales of comparable vehicles are analyzed</li>
+            <li><strong>Documentation Review:</strong> Restoration records, modifications, and condition reports</li>
+            <li><strong>Agreement:</strong> You and the insurer agree on the final value</li>
+            <li><strong>Annual Updates:</strong> Value can be adjusted based on market changes</li>
+          </ol>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Side-by-Side Comparison</h2>
+          
+          <div class="overflow-x-auto mb-8">
+            <table class="w-full border-collapse border border-gray-300">
+              <thead>
+                <tr class="bg-gray-100">
+                  <th class="border border-gray-300 px-4 py-3 text-left">Feature</th>
+                  <th class="border border-gray-300 px-4 py-3 text-center">Actual Cash Value</th>
+                  <th class="border border-gray-300 px-4 py-3 text-center">Agreed Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-gray-300 px-4 py-3 font-medium">Depreciation Applied</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-red-600">Yes</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-green-600">No</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-300 px-4 py-3 font-medium">Value Uncertainty</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-red-600">High</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-green-600">None</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-300 px-4 py-3 font-medium">Premium Cost</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-green-600">Lower</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-yellow-600">Higher</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-300 px-4 py-3 font-medium">Appraisal Required</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-green-600">No</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-yellow-600">Yes</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-300 px-4 py-3 font-medium">Best For</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center">Daily Drivers</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center">Classic/Muscle Cars</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Real-World Example</h2>
+          <div class="bg-blue-50 rounded-lg p-8 mb-8">
+            <h4 class="font-semibold text-blue-900 mb-4">Case Study: 1969 Chevrolet Camaro SS</h4>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h5 class="font-semibold text-gray-800 mb-2">With ACV Coverage:</h5>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Original value: $45,000</li>
+                  <li>• Age depreciation: -$15,000</li>
+                  <li>• Market adjustment: -$5,000</li>
+                  <li>• Deductible: -$1,000</li>
+                  <li class="font-semibold text-red-600">• Final payout: $24,000</li>
+                </ul>
+              </div>
+              <div>
+                <h5 class="font-semibold text-gray-800 mb-2">With Agreed Value:</h5>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Agreed value: $45,000</li>
+                  <li>• No depreciation applied</li>
+                  <li>• No market adjustments</li>
+                  <li>• Deductible: -$1,000</li>
+                  <li class="font-semibold text-green-600">• Final payout: $44,000</li>
+                </ul>
+              </div>
+            </div>
+            <p class="text-blue-800 mt-4 font-medium">
+              Difference: $20,000 more with Agreed Value coverage!
+            </p>
+          </div>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Which Coverage is Right for You?</h2>
+          
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Choose Agreed Value If:</h3>
+          <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+            <li>Your muscle car is appreciating in value</li>
+            <li>You've invested in restoration or modifications</li>
+            <li>The car has sentimental or historical significance</li>
+            <li>You want certainty about claim payouts</li>
+            <li>The vehicle is rare or has unique features</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Consider ACV If:</h3>
+          <ul class="list-disc pl-6 mb-8 text-gray-700 space-y-2">
+            <li>Budget is your primary concern</li>
+            <li>The car is a daily driver with high mileage</li>
+            <li>The vehicle is in poor condition</li>
+            <li>You plan to sell soon</li>
+          </ul>
+
+          <div class="bg-gray-50 rounded-lg p-8 mt-12">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">Ready to Protect Your Investment?</h3>
+            <p class="text-gray-700 mb-6">
+              Don't leave your muscle car's value to chance. Get a personalized quote for agreed value coverage today and ensure your investment is properly protected.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="/quote"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200"
+              >
+                Get Agreed Value Quote
+              </a>
+              <a 
+                href="/contact"
+                class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200"
+              >
+                Speak with Expert
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-blue-900 mb-8">Related Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <img 
+              src="/images/muscle_car_auto_insurance_coverage.jpg" 
+              alt="Top Muscle Cars 2024"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-sm text-blue-600 font-medium">Car Reviews</span>
+              <h3 class="text-lg font-bold text-blue-900 mt-2 mb-3">
+                <a href="/blog/top-10-muscle-cars-to-insure-2024/" class="hover:text-blue-700">
+                  Top 10 Muscle Cars to Insure in 2024
+                </a>
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Discover which classic muscle cars offer the best combination of investment potential and reasonable insurance costs.
+              </p>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <img 
+              src="/images/custom_muscle_car_coverage.jpg" 
+              alt="Classic Car Appraisal"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-sm text-blue-600 font-medium">Valuation</span>
+              <h3 class="text-lg font-bold text-blue-900 mt-2 mb-3">
+                <a href="/blog/classic-car-appraisal-guide/" class="hover:text-blue-700">
+                  Classic Car Appraisal: What You Need to Know
+                </a>
+              </h3>
+              <p class="text-gray-600 text-sm">
+                A comprehensive guide to getting your classic muscle car properly appraised for insurance purposes.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

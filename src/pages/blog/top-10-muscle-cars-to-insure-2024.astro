@@ -1,0 +1,209 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+
+const post = {
+  title: 'Top 10 Muscle Cars to Insure in 2024',
+  author: 'Mike Stevens',
+  date: '2024-08-15',
+  readTime: '8 min read',
+  image: '/images/muscle_car_auto_insurance_coverage.jpg',
+  category: 'Car Reviews'
+};
+---
+
+<Layout 
+  title={`${post.title} – Muscle Car Insurance Blog`}
+  description="Discover which classic muscle cars are not only investment-worthy but also offer the best insurance value for collectors and enthusiasts in 2024."
+>
+  <Header />
+  
+  <main>
+    <!-- Article Header -->
+    <article class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-8">
+          <ol class="flex items-center space-x-2 text-sm text-gray-500">
+            <li><a href="/" class="hover:text-blue-600">Home</a></li>
+            <li class="before:content-['/'] before:mx-2">
+              <a href="/blog" class="hover:text-blue-600">Blog</a>
+            </li>
+            <li class="before:content-['/'] before:mx-2 text-gray-700">
+              {post.title}
+            </li>
+          </ol>
+        </nav>
+
+        <!-- Article Meta -->
+        <div class="mb-8">
+          <div class="flex items-center mb-4">
+            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+              {post.category}
+            </span>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6 leading-tight">
+            {post.title}
+          </h1>
+          
+          <div class="flex items-center text-gray-600 mb-8">
+            <span class="font-medium">{post.author}</span>
+            <span class="mx-3">•</span>
+            <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span class="mx-3">•</span>
+            <span>{post.readTime}</span>
+          </div>
+        </div>
+
+        <!-- Featured Image -->
+        <div class="mb-12">
+          <img 
+            src={post.image} 
+            alt={post.title}
+            class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            The muscle car market continues to evolve, and with it, the insurance landscape for these powerful classics. Whether you're a seasoned collector or looking to purchase your first muscle car, understanding which vehicles offer the best combination of investment potential and reasonable insurance costs is crucial.
+          </p>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">What Makes a Muscle Car Insurance-Friendly?</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Before diving into our top picks, it's important to understand the factors that make certain muscle cars more attractive to insurers:
+          </p>
+          
+          <ul class="list-disc pl-6 mb-8 text-gray-700 space-y-2">
+            <li><strong>Parts Availability:</strong> Cars with readily available parts are cheaper to repair</li>
+            <li><strong>Safety Features:</strong> Modern safety upgrades can reduce premiums</li>
+            <li><strong>Theft Rates:</strong> Lower theft statistics mean lower insurance costs</li>
+            <li><strong>Market Stability:</strong> Stable values make agreed value coverage easier</li>
+            <li><strong>Club Support:</strong> Strong enthusiast communities provide documentation and expertise</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Our Top 10 Picks for 2024</h2>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">1. 1969 Chevrolet Camaro SS</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The '69 Camaro SS remains a top choice for both collectors and insurers. With excellent parts availability and a stable market value, it offers predictable insurance costs and reliable agreed value coverage.
+          </p>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">2. 1970 Plymouth 'Cuda</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The 'Cuda's distinctive styling and growing collector interest make it an excellent insurance candidate. Recent market appreciation has stabilized, making it perfect for agreed value policies.
+          </p>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">3. 1967 Ford Mustang Fastback</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            As one of the most popular muscle cars ever made, the '67 Mustang Fastback benefits from excellent parts support and reasonable insurance rates due to its widespread appeal and documentation.
+          </p>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">4. 1968 Dodge Charger R/T</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The iconic Charger R/T offers substantial power and presence while maintaining reasonable insurance costs thanks to good parts availability and strong collector support.
+          </p>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">5. 1970 Chevrolet Chevelle SS</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The Chevelle SS strikes an excellent balance between performance and practicality, making it attractive to both drivers and insurers with its reliable mechanical components.
+          </p>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Insurance Tips for Muscle Car Owners</h2>
+          
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
+            <h4 class="font-semibold text-blue-900 mb-3">Pro Tip: Document Everything</h4>
+            <p class="text-gray-700">
+              Keep detailed records of all maintenance, modifications, and restorations. This documentation is invaluable for insurance claims and agreed value determinations.
+            </p>
+          </div>
+
+          <ul class="list-disc pl-6 mb-8 text-gray-700 space-y-3">
+            <li><strong>Get Multiple Appraisals:</strong> Have your car professionally appraised by certified specialists</li>
+            <li><strong>Join Enthusiast Clubs:</strong> Membership can provide discounts and valuable documentation</li>
+            <li><strong>Consider Usage:</strong> Be honest about how often you drive your muscle car</li>
+            <li><strong>Secure Storage:</strong> Proper storage can significantly reduce your premiums</li>
+            <li><strong>Safety Upgrades:</strong> Modern safety features can lower insurance costs</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Looking Ahead</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The muscle car insurance market continues to mature, with insurers becoming more sophisticated in their understanding of these vehicles. As the market stabilizes and documentation improves, we expect to see even more competitive rates for well-maintained, properly documented muscle cars.
+          </p>
+
+          <div class="bg-gray-50 rounded-lg p-8 mt-12">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">Ready to Get Your Quote?</h3>
+            <p class="text-gray-700 mb-6">
+              Our muscle car insurance specialists can help you find the perfect coverage for your classic ride. Get started with a personalized quote today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="/quote"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200"
+              >
+                Get Free Quote
+              </a>
+              <a 
+                href="tel:844-967-5247"
+                class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200"
+              >
+                Call 844-967-5247
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-blue-900 mb-8">Related Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <img 
+              src="/images/vintage_muscle_car_coverage.jpeg" 
+              alt="Agreed Value Coverage"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-sm text-blue-600 font-medium">Insurance Tips</span>
+              <h3 class="text-lg font-bold text-blue-900 mt-2 mb-3">
+                <a href="/blog/agreed-value-vs-actual-cash-value-coverage/" class="hover:text-blue-700">
+                  Understanding Agreed Value vs. Actual Cash Value Coverage
+                </a>
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Learn the critical differences between coverage types and why it matters for your investment.
+              </p>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <img 
+              src="/images/customized_muscle_car_coverage.jpeg" 
+              alt="Modifications Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-sm text-blue-600 font-medium">Modifications</span>
+              <h3 class="text-lg font-bold text-blue-900 mt-2 mb-3">
+                <a href="/blog/muscle-car-modifications-insurance-guide/" class="hover:text-blue-700">
+                  The Complete Guide to Muscle Car Modifications and Insurance
+                </a>
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Everything you need to know about insuring modified muscle cars safely and properly.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

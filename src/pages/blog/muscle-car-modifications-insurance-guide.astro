@@ -1,0 +1,329 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+
+const post = {
+  title: 'The Complete Guide to Muscle Car Modifications and Insurance',
+  author: 'Lisa Chen',
+  date: '2024-08-05',
+  readTime: '12 min read',
+  image: '/images/customized_muscle_car_coverage.jpeg',
+  category: 'Modifications'
+};
+---
+
+<Layout 
+  title={`${post.title} – Muscle Car Insurance Blog`}
+  description="Everything you need to know about insuring modified muscle cars, from engine swaps to custom paint jobs. Expert guidance for modification coverage."
+>
+  <Header />
+  
+  <main>
+    <!-- Article Header -->
+    <article class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-8">
+          <ol class="flex items-center space-x-2 text-sm text-gray-500">
+            <li><a href="/" class="hover:text-blue-600">Home</a></li>
+            <li class="before:content-['/'] before:mx-2">
+              <a href="/blog" class="hover:text-blue-600">Blog</a>
+            </li>
+            <li class="before:content-['/'] before:mx-2 text-gray-700">
+              {post.title}
+            </li>
+          </ol>
+        </nav>
+
+        <!-- Article Meta -->
+        <div class="mb-8">
+          <div class="flex items-center mb-4">
+            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+              {post.category}
+            </span>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6 leading-tight">
+            {post.title}
+          </h1>
+          
+          <div class="flex items-center text-gray-600 mb-8">
+            <span class="font-medium">{post.author}</span>
+            <span class="mx-3">•</span>
+            <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span class="mx-3">•</span>
+            <span>{post.readTime}</span>
+          </div>
+        </div>
+
+        <!-- Featured Image -->
+        <div class="mb-12">
+          <img 
+            src={post.image} 
+            alt={post.title}
+            class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            Modifying your muscle car can enhance its performance, appearance, and personal significance. However, these modifications also impact your insurance coverage in ways that many owners don't fully understand. This comprehensive guide will help you navigate the complex relationship between modifications and insurance coverage.
+          </p>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
+            <h4 class="font-semibold text-yellow-800 mb-3">Important Note</h4>
+            <p class="text-yellow-700">
+              Always notify your insurance company before making modifications. Failing to disclose modifications can void your coverage entirely.
+            </p>
+          </div>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Types of Modifications and Their Impact</h2>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Engine Modifications</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Engine modifications are among the most common and impactful changes to muscle cars. These can significantly affect both your premium and coverage needs.
+          </p>
+          
+          <div class="bg-gray-50 rounded-lg p-6 mb-6">
+            <h4 class="font-semibold text-gray-800 mb-3">Common Engine Mods:</h4>
+            <ul class="list-disc pl-6 text-gray-700 space-y-1">
+              <li>Engine swaps (LS, Hemi, etc.)</li>
+              <li>Turbocharger or supercharger installations</li>
+              <li>Performance camshafts and valve trains</li>
+              <li>Cold air intake systems</li>
+              <li>Performance exhaust systems</li>
+              <li>Fuel system upgrades</li>
+            </ul>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Suspension and Handling</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Suspension modifications can improve handling but may also increase risk in some insurers' eyes.
+          </p>
+          
+          <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+            <li><strong>Coilover Systems:</strong> Generally viewed favorably by insurers</li>
+            <li><strong>Air Ride Suspension:</strong> May require additional coverage</li>
+            <li><strong>Lowering Modifications:</strong> Can affect claim payouts</li>
+            <li><strong>Performance Brakes:</strong> Often reduce premiums due to safety benefits</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Aesthetic Modifications</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Visual modifications often add the most value but can be the most expensive to replace in a claim.
+          </p>
+
+          <div class="overflow-x-auto mb-8">
+            <table class="w-full border-collapse border border-gray-300">
+              <thead>
+                <tr class="bg-blue-100">
+                  <th class="border border-gray-300 px-4 py-3 text-left">Modification Type</th>
+                  <th class="border border-gray-300 px-4 py-3 text-center">Insurance Impact</th>
+                  <th class="border border-gray-300 px-4 py-3 text-center">Coverage Needed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-gray-300 px-4 py-3">Custom Paint Jobs</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-yellow-600">Moderate</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center">Custom Parts Coverage</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-300 px-4 py-3">Body Kits/Spoilers</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-green-600">Low</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center">Equipment Coverage</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-300 px-4 py-3">Custom Wheels</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-red-600">High</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center">Separate Policy</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-300 px-4 py-3">Interior Upgrades</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center text-yellow-600">Moderate</td>
+                  <td class="border border-gray-300 px-4 py-3 text-center">Custom Parts Coverage</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Documentation is Critical</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Proper documentation of your modifications is essential for insurance claims and coverage verification. Here's what you need to maintain:
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h4 class="font-semibold text-blue-900 mb-4">Required Documentation:</h4>
+              <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>Purchase receipts for all parts</li>
+                <li>Installation receipts and labor costs</li>
+                <li>Before and after photographs</li>
+                <li>Professional appraisals post-modification</li>
+                <li>Dyno sheets for performance modifications</li>
+                <li>Compliance certificates (if required)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue-900 mb-4">Best Practices:</h4>
+              <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>Use certified mechanics for installation</li>
+                <li>Keep digital and physical copies</li>
+                <li>Update appraisals annually</li>
+                <li>Maintain manufacturer warranties</li>
+                <li>Document ongoing maintenance</li>
+                <li>Create detailed modification timeline</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Insurance Coverage Options</h2>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Custom Parts and Equipment (CPE) Coverage</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            CPE coverage is specifically designed to protect aftermarket modifications that aren't covered under standard policies.
+          </p>
+
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
+            <h4 class="font-semibold text-blue-900 mb-3">What CPE Coverage Includes:</h4>
+            <ul class="text-blue-800 space-y-1">
+              <li>• Aftermarket performance parts</li>
+              <li>• Custom audio/electronics systems</li>
+              <li>• Specialized wheels and tires</li>
+              <li>• Custom paint and bodywork</li>
+              <li>• Interior modifications</li>
+            </ul>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Agreed Value Adjustments</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            When you add significant modifications, your vehicle's agreed value should be adjusted to reflect the increased worth.
+          </p>
+
+          <div class="bg-green-50 rounded-lg p-6 mb-8">
+            <h4 class="font-semibold text-green-800 mb-3">Pro Tip: Annual Value Reviews</h4>
+            <p class="text-green-700">
+              Schedule annual policy reviews to ensure your agreed value keeps pace with your modifications and market appreciation.
+            </p>
+          </div>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Common Mistakes to Avoid</h2>
+
+          <div class="space-y-6 mb-8">
+            <div class="border-l-4 border-red-500 bg-red-50 p-6">
+              <h4 class="font-semibold text-red-800 mb-2">Not Disclosing Modifications</h4>
+              <p class="text-red-700 text-sm">
+                Failing to inform your insurer about modifications can void your entire policy, not just coverage for the modifications.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-red-500 bg-red-50 p-6">
+              <h4 class="font-semibold text-red-800 mb-2">Inadequate Coverage Limits</h4>
+              <p class="text-red-700 text-sm">
+                Standard CPE coverage limits are often too low for extensive modifications. Ensure your limits match your investment.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-red-500 bg-red-50 p-6">
+              <h4 class="font-semibold text-red-800 mb-2">Poor Documentation</h4>
+              <p class="text-red-700 text-sm">
+                Without proper documentation, you may not receive full compensation for your modifications in a claim.
+              </p>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-blue-900 mt-12 mb-6">Working with Your Insurance Company</h2>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">Before You Modify</h3>
+          <ol class="list-decimal pl-6 mb-6 text-gray-700 space-y-2">
+            <li>Contact your agent to discuss planned modifications</li>
+            <li>Understand how changes will affect your premium</li>
+            <li>Determine what additional coverage you'll need</li>
+            <li>Get pre-approval for major modifications</li>
+            <li>Document your vehicle's current condition</li>
+          </ol>
+
+          <h3 class="text-xl font-semibold text-blue-900 mt-8 mb-4">After Modification</h3>
+          <ol class="list-decimal pl-6 mb-8 text-gray-700 space-y-2">
+            <li>Notify your insurer immediately after completion</li>
+            <li>Submit all documentation and receipts</li>
+            <li>Schedule a new appraisal if needed</li>
+            <li>Update your policy limits and coverage</li>
+            <li>Photograph the completed modifications</li>
+          </ol>
+
+          <div class="bg-gray-50 rounded-lg p-8 mt-12">
+            <h3 class="text-xl font-semibold text-blue-900 mb-4">Need Help with Modified Car Insurance?</h3>
+            <p class="text-gray-700 mb-6">
+              Our specialists understand the unique insurance needs of modified muscle cars. Get expert guidance on coverage options that protect your investment.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="/quote"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200"
+              >
+                Get Modified Car Quote
+              </a>
+              <a 
+                href="tel:844-967-5247"
+                class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-semibold text-center transition-colors duration-200"
+              >
+                Call Specialist: 844-967-5247
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-2xl font-bold text-blue-900 mb-8">Related Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <img 
+              src="/images/vintage_muscle_car_coverage.jpeg" 
+              alt="Agreed Value Coverage"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-sm text-blue-600 font-medium">Insurance Tips</span>
+              <h3 class="text-lg font-bold text-blue-900 mt-2 mb-3">
+                <a href="/blog/agreed-value-vs-actual-cash-value-coverage/" class="hover:text-blue-700">
+                  Understanding Agreed Value vs. Actual Cash Value Coverage
+                </a>
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Learn why agreed value coverage is essential for modified muscle cars.
+              </p>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <img 
+              src="/images/custom_muscle_car_coverage.jpg" 
+              alt="Winter Storage"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-sm text-blue-600 font-medium">Maintenance</span>
+              <h3 class="text-lg font-bold text-blue-900 mt-2 mb-3">
+                <a href="/blog/how-to-store-muscle-car-winter/" class="hover:text-blue-700">
+                  How to Properly Store Your Muscle Car for Winter
+                </a>
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Essential storage tips to protect your modified muscle car during off-seasons.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
