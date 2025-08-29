@@ -1,0 +1,285 @@
+---
+// Import components
+import Layout from '../components/layout/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+const resources = [
+  {
+    title: 'Muscle Car Valuation Guide',
+    description: 'Learn how to properly assess and document the value of your muscle car for insurance purposes.',
+    link: '/resources/valuation-guide',
+    category: 'Valuation'
+  },
+  {
+    title: 'Claims Process Guide',
+    description: 'Step-by-step guide on how to file a claim and what to expect during the process.',
+    link: '/claims',
+    category: 'Claims'
+  },
+  {
+    title: 'Maintenance Tips',
+    description: 'Essential maintenance tips to keep your muscle car in optimal condition and protect your investment.',
+    link: '/resources/maintenance',
+    category: 'Care'
+  },
+  {
+    title: 'Storage Best Practices',
+    description: 'Proper storage techniques to protect your muscle car during off-seasons.',
+    link: '/resources/storage',
+    category: 'Care'
+  },
+  {
+    title: 'Insurance Glossary',
+    description: 'Understanding insurance terminology specific to classic and muscle car coverage.',
+    link: '/resources/glossary',
+    category: 'Education'
+  },
+  {
+    title: 'State Requirements',
+    description: 'Insurance requirements and regulations by state for classic and muscle cars.',
+    link: '/resources/state-requirements',
+    category: 'Legal'
+  }
+];
+
+const categories = ['All', 'Valuation', 'Claims', 'Care', 'Education', 'Legal'];
+---
+
+<Layout 
+  title="Resources – Muscle Car Insurance Knowledge Center"
+  description="Access helpful resources, guides, and tools for muscle car owners. Learn about valuation, claims, maintenance, and insurance best practices."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-900 to-blue-600 text-white py-16 lg:py-24">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold font-heading mb-6 leading-tight">
+            Resources & Knowledge Center
+          </h1>
+          <p class="text-xl mb-8 opacity-95 leading-relaxed">
+            Everything you need to know about protecting and maintaining your muscle car investment
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Grid -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <!-- Category Filter -->
+        <div class="text-center mb-12">
+          <div class="flex flex-wrap justify-center gap-4">
+            {categories.map((category) => (
+              <button 
+                class="px-6 py-2 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200 resource-filter"
+                data-category={category}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Resources Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {resources.map((resource) => (
+            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 resource-card" data-category={resource.category}>
+              <div class="p-6">
+                <!-- Category Badge -->
+                <div class="mb-4">
+                  <span class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                    {resource.category}
+                  </span>
+                </div>
+                
+                <!-- Content -->
+                <h3 class="text-xl font-bold text-blue-900 mb-3">
+                  {resource.title}
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                  {resource.description}
+                </p>
+                
+                <!-- CTA Link -->
+                <a 
+                  href={resource.link}
+                  class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors group"
+                >
+                  Read More
+                  <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p class="text-xl text-gray-600">
+              Quick answers to common questions about muscle car insurance
+            </p>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gray-50 rounded-lg border border-gray-200">
+              <button 
+                class="w-full text-left p-6 focus:outline-none"
+                onclick="toggleResourceFaq(0)"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold text-blue-900 pr-4">
+                    How often should I get my muscle car appraised?
+                  </h3>
+                  <div class="text-blue-900 text-xl font-bold" id="resource-arrow-0">
+                    +
+                  </div>
+                </div>
+              </button>
+              <div class="px-6 pb-6 hidden" id="resource-answer-0">
+                <div class="border-t border-gray-200 pt-4">
+                  <p class="text-gray-600 leading-relaxed">
+                    We recommend getting your muscle car appraised every 2-3 years or after any significant modifications or restorations to ensure your coverage reflects current market value.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg border border-gray-200">
+              <button 
+                class="w-full text-left p-6 focus:outline-none"
+                onclick="toggleResourceFaq(1)"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold text-blue-900 pr-4">
+                    What documentation do I need for a claim?
+                  </h3>
+                  <div class="text-blue-900 text-xl font-bold" id="resource-arrow-1">
+                    +
+                  </div>
+                </div>
+              </button>
+              <div class="px-6 pb-6 hidden" id="resource-answer-1">
+                <div class="border-t border-gray-200 pt-4">
+                  <p class="text-gray-600 leading-relaxed">
+                    You'll need your insurance policy, photos of the damage, police report (if applicable), repair estimates, and any receipts for parts or modifications related to the claim.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-20 bg-blue-900 text-white text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Need More Help?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-95">
+          Our muscle car insurance experts are here to answer your questions and provide personalized guidance.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contact"
+            class="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200"
+          >
+            Contact Us
+          </a>
+          <a 
+            href="tel:844-967-5247"
+            class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200"
+          >
+            Call 844-967-5247
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Resource category filtering
+  function filterResources(category) {
+    const cards = document.querySelectorAll('.resource-card');
+    const buttons = document.querySelectorAll('.resource-filter');
+    
+    // Update button states
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-blue-600', 'text-white');
+      btn.classList.add('text-blue-600');
+    });
+    
+    const activeButton = document.querySelector(`[data-category="${category}"]`);
+    if (activeButton) {
+      activeButton.classList.add('bg-blue-600', 'text-white');
+      activeButton.classList.remove('text-blue-600');
+    }
+    
+    // Filter cards
+    cards.forEach(card => {
+      if (category === 'All' || card.dataset.category === category) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  
+  // Add click event listeners to filter buttons
+  document.querySelectorAll('.resource-filter').forEach(button => {
+    button.addEventListener('click', () => {
+      filterResources(button.dataset.category);
+    });
+  });
+  
+  // Set initial state
+  filterResources('All');
+  
+  // FAQ Toggle Functionality
+  function toggleResourceFaq(index) {
+    const answer = document.getElementById(`resource-answer-${index}`);
+    const arrow = document.getElementById(`resource-arrow-${index}`);
+    
+    if (answer.classList.contains('hidden')) {
+      // Close all other FAQs first
+      document.querySelectorAll('[id^="resource-answer-"]').forEach(el => {
+        el.classList.add('hidden');
+      });
+      document.querySelectorAll('[id^="resource-arrow-"]').forEach(el => {
+        el.textContent = '+';
+        el.classList.remove('rotate-45');
+      });
+      
+      // Open this FAQ
+      answer.classList.remove('hidden');
+      arrow.textContent = '−';
+      arrow.classList.add('rotate-45');
+    } else {
+      // Close this FAQ
+      answer.classList.add('hidden');
+      arrow.textContent = '+';
+      arrow.classList.remove('rotate-45');
+    }
+  }
+  
+  // Make function globally available
+  window.toggleResourceFaq = toggleResourceFaq;
+</script>
