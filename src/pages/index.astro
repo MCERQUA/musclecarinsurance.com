@@ -11,15 +11,18 @@ import Button from '../components/ui/Button.astro';
 const coverageTypes = [
   {
     title: 'Collision & Comprehensive',
-    description: 'Our policies cover both accident-related and non-accident damages, ensuring your muscle car is protected no matter the circumstance.'
+    description: 'Our policies cover both accident-related and non-accident damages, ensuring your muscle car is protected no matter the circumstance.',
+    image: '/images/muscle_car_auto_insurance_coverage.jpg'
   },
   {
     title: 'Agreed Value Coverage',
-    description: 'Insure your muscle car at its appraised value, safeguarding against depreciation and ensuring full value compensation in the event of a loss.'
+    description: 'Insure your muscle car at its appraised value, safeguarding against depreciation and ensuring full value compensation in the event of a loss.',
+    image: '/images/vintage_muscle_car_coverage.jpeg'
   },
   {
     title: 'Custom Parts & Equipment Coverage',
-    description: 'Protect your vehicle\'s unique modifications, including custom paint jobs and aftermarket parts, with our specialized coverage options.'
+    description: 'Protect your vehicle\'s unique modifications, including custom paint jobs and aftermarket parts, with our specialized coverage options.',
+    image: '/images/custom_muscle_car_coverage.jpg'
   }
 ];
 
@@ -100,13 +103,39 @@ const faqs = [
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {coverageTypes.map((coverage) => (
-            <div class="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300">
-              <h3 class="text-xl font-bold text-blue-900 mb-4">
-                {coverage.title}
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                {coverage.description}
-              </p>
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+              <!-- Image Header -->
+              <div class="relative h-48 overflow-hidden">
+                <img 
+                  src={coverage.image} 
+                  alt={coverage.title}
+                  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+              
+              <!-- Content -->
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-blue-900 mb-4">
+                  {coverage.title}
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  {coverage.description}
+                </p>
+                
+                <!-- Modern CTA Button -->
+                <div class="mt-6">
+                  <a 
+                    href="/coverage" 
+                    class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors group"
+                  >
+                    Learn More
+                    <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           ))}
         </div>
