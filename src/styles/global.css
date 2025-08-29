@@ -47,6 +47,10 @@
   background: linear-gradient(135deg, var(--secondary-gray), var(--primary-blue));
 }
 
+.bg-gradient-radial {
+  background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 100%);
+}
+
 /* Button Base Styles */
 .btn {
   @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
